@@ -11,7 +11,7 @@ jobs:
       matrix: 
          go: [1.11, 1.12, 1.13, 1.14, 1.15] 
          flag: [A, B, C, D] 
-    timeout-minutes: 3
+    timeout-minutes: 6
   
     steps: 
     - uses: actions/checkout@v4
