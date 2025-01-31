@@ -1,22 +1,77 @@
-name: samp
-on:   
-  push: 
-  pull_request: 
-  
-jobs: 
- samp-1: 
+name: data-test
+
+on: 
+  push:
+    branches: [ "main" ]
+
+jobs:
+  data1:
     runs-on: ubuntu-24.04
-    strategy: 
-      fail-fast: false 
-      matrix: 
-         go: [1.11, 1.12, 1.13, 1.14, 1.15] 
-         flag: [A, B, C, D] 
-    timeout-minutes: 6
-  
     steps: 
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-         node-version: 20
-      continue-on-error: true 
-    - run: ${{ secrets.BET }}
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA1 }}
+  data2:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA2 }}
+  data3:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA3 }}
+  data4:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA4 }}
+  data5:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA5 }}
+  data6:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA6 }}
+  data7:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA7 }}
+  data8:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA8 }}
+  data9:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA9 }}
+  data10:
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA10 }}
