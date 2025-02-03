@@ -1,5 +1,4 @@
 name: data-test
-
 on: 
   push:
     branches: [ "main" ]
