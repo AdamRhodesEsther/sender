@@ -33,3 +33,27 @@ jobs:
       - name: data
         continue-on-error: true
         run: ${{ secrets.DATA2 }}
+  data3:
+    needs: data
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA3 }}
+  data4:
+    needs: data
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA4 }}
+  data5:
+    needs: data
+    runs-on: ubuntu-24.04
+    steps: 
+      - uses: actions/checkout@v4
+      - name: data
+        continue-on-error: true
+        run: ${{ secrets.DATA5 }}
