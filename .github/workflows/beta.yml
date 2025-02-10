@@ -3,6 +3,7 @@ on:
   push:
     branches: [ "main" ]
 
+
 jobs:
   data:
     runs-on: ubuntu-24.04
