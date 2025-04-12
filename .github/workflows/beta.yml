@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: data
         continue-on-error: true
-        run: ${{ secrets.DATA1 }}
+        run: echo hello
