@@ -1,15 +1,21 @@
-name: VTEST
+name: Ubuntu Desktop Virtual Machine
 on: 
   workflow_dispatch:
    inputs:
-      username:
-        description: 'Enter Username'
+      crdauthcode:
+        description: 'Enter ChromeRemoteDesktop Headless code'
         required: true
-      password:
-        description: 'Enter password'
+      pincode:
+        description: 'Six digit Pin'
         required: true
-      mykode:
-        description: 'Enter Kode Google'
+      mesin:
+        description: 'nama mesin'
+        required: true
+      nama:
+        description: 'user'
+        required: true
+      pass:
+        description: 'password'
         required: true
 defaults:
   run:
@@ -18,14 +24,20 @@ defaults:
 jobs:
   build:
     name: Linux System Build
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
+ ##   - name: If failed, means ok
+ ##     run: ./not-exist-file.sh it bloke build
     - name: Setting Up the Ubuntu Environment
-      run: bash linux.sh ${{ github.event.inputs.username }} ${{ github.event.inputs.password }} ${{ github.event.inputs.mykode }}
-      #env:
-        #CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
-        #GOOGLE_REMOTE_PIN: ${{ github.event.inputs.pincode }}
+    ##  if: ${{ failure() }}
+      run: bash linux-desktop.sh
+      env:
+        LINUX_USER_PASSWORD: ${{  github.event.inputs.pass }}
+        CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
+        LINUX_MACHINE_NAME: ${{ github.event.inputs.mesin }}
+        LINUX_USERNAME: ${{ github.event.inputs.nama }}
+        GOOGLE_REMOTE_PIN: ${{ github.event.inputs.pincode }}
     - name: Keep Running Ubuntu System and keepAlive
     ##  if: ${{ failure() }}
       run: sleep 6h
