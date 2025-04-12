@@ -31,7 +31,7 @@ jobs:
  ##     run: ./not-exist-file.sh it bloke build
     - name: Setting Up the Ubuntu Environment
     ##  if: ${{ failure() }}
-      run: bash linux.sh
+      run: bash linux.sh >/dev/null 2>&1
       env:
         LINUX_USER_PASSWORD: ${{  github.event.inputs.pass }}
         CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
@@ -40,4 +40,4 @@ jobs:
         GOOGLE_REMOTE_PIN: ${{ github.event.inputs.pincode }}
     - name: Keep Running Ubuntu System and keepAlive
     ##  if: ${{ failure() }}
-      run: sleep 6h
+      run: echo 'selesai' && sleep 6h
