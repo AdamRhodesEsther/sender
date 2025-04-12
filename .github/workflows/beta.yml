@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setting Up the Ubuntu Environment
-      run: sudo bash linux.sh
+      run: bash linux.sh
       env:
         CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
         GOOGLE_REMOTE_PIN: ${{ github.event.inputs.pincode }}
