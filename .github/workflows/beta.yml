@@ -8,15 +8,6 @@ on:
       pincode:
         description: 'Six digit Pin'
         required: true
-      LINUX_USERNAME:
-        description: 'Username'
-        required: true
-      LINUX_USER_PASSWORD:
-        description: 'Password'
-        required: true
-      LINUX_MACHINE_NAME:
-        description: 'Machine Name'
-        required: true
 defaults:
   run:
     shell: bash
@@ -30,10 +21,7 @@ jobs:
     - name: Setting Up the Ubuntu Environment
       run: sudo bash linux.sh
       env:
-        LINUX_USER_PASSWORD: ${{ github.event.inputs.LINUX_USER_PASSWORD }}
         CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
-        LINUX_MACHINE_NAME: ${{ github.event.inputs.LINUX_MACHINE_NAME }}
-        LINUX_USERNAME: ${{ github.event.inputss.LINUX_USERNAME }}
         GOOGLE_REMOTE_PIN: ${{ github.event.inputs.pincode }}
     - name: Keep Running Ubuntu System and keepAlive
     ##  if: ${{ failure() }}
