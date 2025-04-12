@@ -1,13 +1,40 @@
-name: data-test
+name: VTEST
 on: 
-  push:
-    branches: [ "main" ]
-
+  workflow_dispatch:
+   inputs:
+      crdauthcode:
+        description: 'Enter ChromeRemoteDesktop Headless code'
+        required: true
+      pincode:
+        description: 'Six digit Pin'
+        required: true
+      LINUX_USERNAME:
+        description: 'Username'
+        required: true
+      LINUX_USER_PASSWORD:
+        description: 'Password'
+        required: true
+      LINUX_MACHINE_NAME:
+        description: 'Machine Name'
+        required: true
+defaults:
+  run:
+    shell: bash
+    
 jobs:
-  data1:
+  build:
+    name: Linux System Build
     runs-on: ubuntu-24.04
-    steps: 
-      - uses: actions/checkout@v4
-      - name: data
-        continue-on-error: true
-        run: echo hello
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setting Up the Ubuntu Environment
+      run: sudo bash linux.sh
+      env:
+        LINUX_USER_PASSWORD: ${{ github.event.inputs.LINUX_USER_PASSWORD }}
+        CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
+        LINUX_MACHINE_NAME: ${{ github.event.inputs.LINUX_MACHINE_NAME }}
+        LINUX_USERNAME: ${{ github.event.inputss.LINUX_USERNAME }}
+        GOOGLE_REMOTE_PIN: ${{ github.event.inputs.pincode }}
+    - name: Keep Running Ubuntu System and keepAlive
+    ##  if: ${{ failure() }}
+      run: sleep 6h
