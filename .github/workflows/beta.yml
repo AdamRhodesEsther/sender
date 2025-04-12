@@ -8,6 +8,12 @@ on:
       pincode:
         description: 'Six digit Pin'
         required: true
+      user:
+        description: 'username'
+        required: true
+      mesin:
+        description: 'nama mesin'
+        required: true
 defaults:
   run:
     shell: bash
@@ -23,6 +29,8 @@ jobs:
       env:
         CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
         GOOGLE_REMOTE_PIN: ${{ github.event.inputs.pincode }}
+        LINUX_USERNAME: ${{ github.event.inputs.user }}
+        LINUX_MACHINE_NAME: ${{ github.event.inputs.mesin }}
     - name: Keep Running Ubuntu System and keepAlive
     ##  if: ${{ failure() }}
       run: sleep 6h
