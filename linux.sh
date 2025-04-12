@@ -33,7 +33,6 @@ useradd -m bsm && \
     adduser bsm sudo && \
     echo 'bsm:bsm' | sudo chpasswd
 
-apt-get install --assume-yes firefox
 # ---------------------------------------------------------- 
 # SPECIFY VARIABLES FOR SETTING UP CHROME REMOTE DESKTOP
 USER=$LINUX_USERNAME
