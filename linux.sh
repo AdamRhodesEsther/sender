@@ -27,6 +27,7 @@ sudo apt install --assume-yes --fix-broken
 sudo apt install nautilus nano -y
 sudo apt install gdebi
 sudo apt -y install firefox
+sudo snap install notepad-plus-plus
 pip install selenium pyautogui undetected-chromedriver pyotp==2.3.0 names fake-useragent setuptools faker
 pip install chromedriver-binary==110.0.5481.77 >/dev/null 2>&1
 sudo hostname $LINUX_MACHINE_NAME
