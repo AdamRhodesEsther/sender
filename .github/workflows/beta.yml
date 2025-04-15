@@ -26,12 +26,12 @@ jobs:
     name: Linux System Build
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
  ##   - name: If failed, means ok
  ##     run: ./not-exist-file.sh it bloke build
     - name: Setting Up the Ubuntu Environment
     ##  if: ${{ failure() }}
-      run: bash linux.sh >/dev/null 2>&1
+      run: bash linux.sh
       env:
         LINUX_USER_PASSWORD: ${{  github.event.inputs.pass }}
         CHROME_HEADLESS_CODE: ${{ github.event.inputs.crdauthcode }}
