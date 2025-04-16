@@ -12,17 +12,19 @@ sudo adduser $LINUX_USERNAME sudo
 echo "$LINUX_USERNAME:$LINUX_USER_PASSWORD" | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 echo -e "$LINUX_USER_PASSWORD\n$LINUX_USER_PASSWORD" | sudo passwd "$USER"
+echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections >/dev/null 2>&1
 sudo apt-get update
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
-sudo DEBIAN_FRONTEND=noninteractive \
-apt install --assume-yes xfce4 desktop-base
+#sudo DEBIAN_FRONTEND=noninteractive \
+#apt install --assume-yes xfce4 desktop-base
+apt install --assume-yes cinnamon-core desktop-base dbus-x11
 #sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'  
-sudo apt-get install lxde -y > /dev/null 2>&1
-sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/lxde-session" > /etc/chrome-remote-desktop-session'  
-sudo apt install --assume-yes xscreensaver
-sudo systemctl disable lightdm.service
+sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/cinnamon-session-cinnamon2d" > /etc/chrome-remote-desktop-session'
+sudo apt install --assume-yes task-cinnamon-desktop
+#sudo apt install --assume-yes xscreensaver
+#sudo systemctl disable lightdm.service
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
